@@ -1,0 +1,19 @@
+.caracter-list__card {
+    margin: 0 10px;
+
+    &__container {
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px!important;
+    }
+}
+
+.caracter-list__buttons__container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.caracter-list__button {
+    margin: 0 10px;
+}
