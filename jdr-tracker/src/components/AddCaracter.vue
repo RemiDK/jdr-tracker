@@ -36,7 +36,7 @@
                 <v-btn text="Close" variant="plain" @click="dialog = false">
                 </v-btn>
                 
-                <v-btn text="Save" variant="tonal" color="primary" @click="pouet()">
+                <v-btn text="Save" variant="tonal" color="primary" @click="submitForm()">
                 </v-btn>
             </v-card-actions>
         </v-card>
@@ -53,10 +53,11 @@ export default {
         dialog: false,
         caracter: new Caracter
     }),
+    emits: ['emitCaracter'],
     methods: {
-        pouet() {
+        submitForm() {
             this.dialog = false;
-            console.log(this.caracter);
+            this.$emit('emitCaracter', this.caracter);
             this.caracter = new Caracter;
         }
     }

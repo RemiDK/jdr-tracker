@@ -1,14 +1,20 @@
 [
     {
         "name": "Wyatt",
-        "maxHealth": 54
+        "maxHealth": 54,
+        "initiative": 19,
+        "type": "hero"
     },
     {
         "name": "Zébu",
-        "maxHealth": 39
+        "maxHealth": 39,
+        "initiative": 10,
+        "type": "hero"
     },
     {
         "name": "Gunter",
-        "maxHealth": 35
+        "maxHealth": 35,
+        "initiative": 12,
+        "type": "hero"
     }
 ]
