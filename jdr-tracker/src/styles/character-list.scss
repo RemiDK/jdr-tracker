@@ -1,4 +1,4 @@
-.caracter-list__card {
+.character-list__card {
     padding: 10px;
 
     &__remove {
@@ -12,12 +12,12 @@
     }
 }
 
-.caracter-list__buttons__container {
+.character-list__buttons__container {
     display: flex;
     justify-content: center;
     margin-top: 50px;
 }
 
-.caracter-list__button {
+.character-list__button {
     margin: 0 10px;
 }

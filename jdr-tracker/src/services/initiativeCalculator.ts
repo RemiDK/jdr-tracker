@@ -1,5 +1,5 @@
-import Caracter from "../classes/Caracter";
+import Character from "../classes/Character";
 
-export default function initiativeCalculator(caracterList: Caracter[]): Caracter[] {
-    return caracterList.sort((caracter1, caracter2) => (caracter1.initiative > caracter2.initiative ? -1 : 1))
+export default function initiativeCalculator(characterList: Character[]): Character[] {
+    return characterList.sort((character1, character2) => (character1.initiative > character2.initiative ? -1 : 1))
 }

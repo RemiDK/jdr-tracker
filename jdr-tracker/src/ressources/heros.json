@@ -3,18 +3,21 @@
         "name": "Wyatt",
         "maxHealth": 54,
         "initiative": 19,
-        "type": "hero"
+        "type": "hero",
+        "selected": false
     },
     {
         "name": "Zébu",
         "maxHealth": 39,
         "initiative": 10,
-        "type": "hero"
+        "type": "hero",
+        "selected": false
     },
     {
         "name": "Gunter",
         "maxHealth": 35,
         "initiative": 12,
-        "type": "hero"
+        "type": "hero",
+        "selected": false
     }
 ]
