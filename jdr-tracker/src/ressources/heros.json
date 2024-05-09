@@ -4,7 +4,7 @@
         "maxHealth": 54,
         "initiative": 19,
         "type": "hero",
-        "selected": false
+        "selected": true
     },
     {
         "name": "Zébu",

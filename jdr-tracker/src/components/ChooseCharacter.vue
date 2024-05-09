@@ -11,8 +11,8 @@
             title="Ajouter un personnage">
                 <v-card-text>
                     <v-row dense>
-                        <v-col cols="6" v-for="(character, index) in characterList">
-                            <v-card class="choose-character-card" @click="selectCharacter(index)">
+                        <v-col cols="6" v-for="(character, index) in characterList.filter(character => character.selected !== true)">
+                            <v-card class="choose-character-card" @click="character.selected = !character.selected">
                                 <v-card-text>
                                     <v-col cols="12">
                                         {{ character.name }}
@@ -27,11 +27,7 @@
 
                 <v-card-actions>
                     <v-spacer></v-spacer>
-
-                    <v-btn text="Annuler" variant="plain" @click="dialog=false">
-                    </v-btn>
-
-                    <v-btn text="Ajouter" variant="tonal" color="primary" @click="submitForm()">
+                    <v-btn text="OK" variant="plain" @click="dialog=false">
                     </v-btn>
                 </v-card-actions>
             </v-card>
@@ -39,33 +35,23 @@
     </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
+import { Ref, onMounted, ref } from 'vue';
 import Character from '../classes/Character';
 import CharacterService from '../services/characterService';
+import { useCharactersStore } from '../stores/characterStore';
 
-export default {
-    data: () => ({
-        dialog: false,
-        characterService: new CharacterService,
-        characterList: [] as Character[],
-        selectedCharacters: []
-    }),
-    emits: ['emitChosenCharacter'],
-    methods: {
-        selectCharacter(index: number) {
-            this.characterList[index].selected = !this.characterList[index].selected;
-        },
-        submitForm() {
-            this.selectedCharacters.forEach(character => {
-                character.selected = true;
-            });
-            this.dialog = false;
-            console.log(this.characterList)
-            this.$emit('emitChosenCharacter');
-        }
-    },
-    mounted() {
-        this.characterList = this.characterService.getHeros().filter(character => character.selected !== true);
-    }
+let dialog: Ref<boolean> = ref(false);
+let characterList: Ref<Character[]> = ref([]);
+const emit = defineEmits(['emitChosenCharacter']);
+const store = useCharactersStore();
+    
+onMounted(() => {
+    characterList.value = store.heros;
+})
+
+function submitForm() {
+    dialog.value = false;
+    emit('emitChosenCharacter');
 }
 </script>
