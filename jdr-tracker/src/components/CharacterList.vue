@@ -21,6 +21,9 @@
         <v-row class="character-list__export">
             <v-btn text="Exporter" @click="exportCurrentGame()"></v-btn>
         </v-row>
+        <v-row>
+            <v-btn text="Test" @click="testExport()"></v-btn>
+        </v-row>
     </v-container>
 </template>
     
@@ -32,6 +35,7 @@ import initiativeCalculator from '../services/initiativeCalculator';
 import ChooseCharacter from './ChooseCharacter.vue';
 import { useCharactersStore } from '../stores/characterStore';
 import CharacterService from '../services/characterService';
+import axios from 'axios';
     
 let characterList: Ref<Character[]> = ref([]);
 let paginationModel: null;
@@ -42,6 +46,11 @@ onMounted(() => {
     const characters = store.heros;
     characterList.value = initiativeCalculator(characters);
 })
+
+async function testExport() {
+    const test = await axios.get("http://localhost:4200/characters/");
+    console.log(test);
+}
         
 function createCharacter(character: Character) {
     characterList.value.push(character);

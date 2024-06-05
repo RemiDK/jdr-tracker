@@ -1,0 +1,34 @@
+version: '3.9'
+services:
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_DATABSE: 'jdr-tracker'
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'user'
+    container_name: mysql
+    ports:
+      - 3306:3306
+    volumes:
+      - /var/lib/mysql
+
+  #server:
+    #build: ./server
+    #container_name: nest-docker
+    #ports:
+      #- '3000:3000'
+    #depends_on:
+      #- db
+  
+  phpmyadmin:
+    depends_on:
+      - db
+    image: phpmyadmin
+    restart: always
+    ports:
+      - '8081:80'
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: 'root'

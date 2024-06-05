@@ -38,7 +38,6 @@
 <script setup lang="ts">
 import { Ref, onMounted, ref } from 'vue';
 import Character from '../classes/Character';
-import CharacterService from '../services/characterService';
 import { useCharactersStore } from '../stores/characterStore';
 
 let dialog: Ref<boolean> = ref(false);
