@@ -15,6 +15,7 @@ declare module 'vue' {
     ChooseCaracter: typeof import('./src/components/ChooseCaracter.vue')['default']
     ChooseCharacter: typeof import('./src/components/ChooseCharacter.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    ImportExport: typeof import('./src/components/ImportExport.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

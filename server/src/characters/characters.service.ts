@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Character } from './character.entity';
 import { Repository } from 'typeorm';
+import { CreateCharacterDto } from './dto/create-characters.dto';
 
 @Injectable()
 export class CharactersService {
@@ -16,6 +17,10 @@ export class CharactersService {
 
     findOne(id: number): Promise<Character | null> {
         return this.characterRepository.findOneBy({ id });
+    }
+
+    async create(characters: CreateCharacterDto[]) {
+        return await this.characterRepository.save(characters);
     }
 
     async remove(id: number): Promise<void> {

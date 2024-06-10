@@ -1,0 +1,16 @@
+[
+    {
+        "name": "Bro",
+        "maxHealth": 54,
+        "initiative": 19,
+        "type": "hero",
+        "selected": false
+    },
+    {
+        "name": "Ther",
+        "maxHealth": 39,
+        "initiative": 10,
+        "type": "hero",
+        "selected": false
+    }
+]

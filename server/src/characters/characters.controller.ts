@@ -12,10 +12,10 @@ export class CharactersController {
         return this.caractersService.findAll();
     }
 
-    /*@Post()
-    async create(@Body() createCharacterDto: CreateCharacterDto) {
+    @Post()
+    async create(@Body() createCharacterDto: CreateCharacterDto[]) {
         this.caractersService.create(createCharacterDto);
-    }*/
+    }
 
     @Get(':id')
     findOne(@Param() params: any): string {
