@@ -18,7 +18,6 @@ async function importCharacters() {
     const importedJson = await import('../ressources/importCaracters.json');
     await axios.post("http://localhost:4200/characters/", importedJson.default);
     store.heros = (await axios.get("http://localhost:4200/characters/")).data;
-    emit('importCharacters');
 }
 
 function exportCurrentGame() {
