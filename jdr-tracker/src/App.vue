@@ -8,13 +8,12 @@
 
 <script lang="ts" setup>
 import { useCharactersStore } from './stores/characterStore';
-import CharacterService from './services/characterService';
 import { onMounted } from 'vue';
+import axios from 'axios';
 
 const store = useCharactersStore();
-const characterService = new CharacterService;
 
-onMounted(() => {
-  store.heros = characterService.getHeros();
+onMounted(async () => {
+  store.heros = (await axios.get("http://localhost:4200/characters/")).data;
 })
 </script>

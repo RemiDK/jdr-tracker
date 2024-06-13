@@ -1,15 +1,25 @@
 [
     {
-        "name": "Bro",
+        "id": 5,
+        "name": "Wyatt",
         "maxHealth": 54,
         "initiative": 19,
+        "type": "hero",
+        "selected": true
+    },
+    {
+        "id": 6,
+        "name": "Zébu",
+        "maxHealth": 39,
+        "initiative": 10,
         "type": "hero",
         "selected": false
     },
     {
-        "name": "Ther",
-        "maxHealth": 39,
-        "initiative": 10,
+        "id": 7,
+        "name": "Gunter",
+        "maxHealth": 35,
+        "initiative": 12,
         "type": "hero",
         "selected": false
     }

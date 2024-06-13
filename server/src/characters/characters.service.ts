@@ -11,11 +11,11 @@ export class CharactersService {
         private characterRepository: Repository<Character>
     ) {}
     
-    findAll(): Promise<Character[]> {
-        return this.characterRepository.find();
+    async findAll(): Promise<Character[]> {
+        return await this.characterRepository.find();
     }
 
-    findOne(id: number): Promise<Character | null> {
+    async findOne(id: number): Promise<Character | null> {
         return this.characterRepository.findOneBy({ id });
     }
 

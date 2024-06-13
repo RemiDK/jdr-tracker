@@ -6,21 +6,19 @@
 </template>
 
 <script setup lang="ts">
-import Character from '../classes/Character';
 import CharacterService from '../services/characterService';
 import { useCharactersStore } from '../stores/characterStore';
 import axios from 'axios';
 
 const characterService = new CharacterService;
 const store = useCharactersStore();
+const emit = defineEmits(['importCharacters']);
 
 async function importCharacters() {
-    const character = new Character();
-    character.name = 'bob';
-    character.maxHealth = 22;
-    character.type = 'humanoïde';
     const importedJson = await import('../ressources/importCaracters.json');
     await axios.post("http://localhost:4200/characters/", importedJson.default);
+    store.heros = (await axios.get("http://localhost:4200/characters/")).data;
+    emit('importCharacters');
 }
 
 function exportCurrentGame() {

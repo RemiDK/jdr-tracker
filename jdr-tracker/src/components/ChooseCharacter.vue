@@ -42,15 +42,9 @@ import { useCharactersStore } from '../stores/characterStore';
 
 let dialog: Ref<boolean> = ref(false);
 let characterList: Ref<Character[]> = ref([]);
-const emit = defineEmits(['emitChosenCharacter']);
 const store = useCharactersStore();
     
 onMounted(() => {
     characterList.value = store.heros;
 })
-
-function submitForm() {
-    dialog.value = false;
-    emit('emitChosenCharacter');
-}
 </script>
